@@ -36,10 +36,10 @@ keymap("n", "<S-l>", ":bnext<CR>", opts)
 keymap("n", "<S-h>", ":bprevious<CR>", opts)
 
 -- Move text up and down
-keymap("n", "<A-j>", "<Esc>:m .+1<CR>==gi", opts)
-keymap("n", "<A-k>", "<Esc>:m .-2<CR>==gi", opts)
+keymap("n", "<A-k>", "<Esc>:m .-2<CR>==", opts)
 
 -- Insert --
+keymap("n", "<A-j>", "<Esc>:m .+1<CR>==", opts)
 -- Press jk fast to exit insert mode 
 keymap("i", "jk", "<ESC>", opts)
 keymap("i", "kj", "<ESC>", opts)
@@ -68,3 +68,22 @@ keymap("x", "<A-k>", ":move '<-2<CR>gv-gv", opts)
 -- keymap("t", "<C-k>", "<C-\\><C-N><C-w>k", term_opts)
 -- keymap("t", "<C-l>", "<C-\\><C-N><C-w>l", term_opts)
 
+keymap("n", "qq", ":q!<CR>", opts)
+-- 取消 s 默认功能
+keymap("n", "s", "", opts)
+keymap("n", "sv", ":vsp<CR>", opts)
+keymap("n", "sh", ":sp<CR>", opts)
+-- 关闭当前
+keymap("n", "sc", "<C-w>c", opts)
+-- 关闭其他
+keymap("n", "so", "<C-w>o", opts) -- close others
+
+-- alt + hjkl  窗口之间跳转
+keymap("n", "<A-Left>", "<C-w>h", opts)
+keymap("n", "<A-Down>", "<C-w>j", opts)
+keymap("n", "<A-Up>", "<C-w>k", opts)
+keymap("n", "<A-Right>", "<C-w>l", opts)
+
+-- Terminal相关
+keymap("n", "st", ":sp | terminal<CR>", opts)
+keymap("n", "stv", ":vsp | terminal<CR>", opts)
